@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      WhatsApp
+    </ion-title>
+
+    <ion-buttons mode="ios" slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-segment mode="ios" value="Chats">
+    <ion-segment-button value="Comunidad">
+      <ion-icon name="people-sharp"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="Chats">
+      <ion-label>Chats</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Novedades">
+      <ion-label>Novedades</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Llamadas">
+      <ion-label>Llamadas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+</ion-content>
