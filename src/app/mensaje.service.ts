@@ -17,11 +17,25 @@ export class MensajeService {
     const newMensaje: Mensaje = {
       id: this.mensajes.length + 1,
       contenido,
-      input,
       remitente,
+      input,
       fecha: new Date()
     };
 
     this.mensajes.push(newMensaje);
+
+    setTimeout(() => {
+      const respuesta: Mensaje = {
+        id: this.mensajes.length + 1,
+        contenido: 'Respuesta automática después de 10 segundos',
+        remitente: 'Sistema',
+        input: true,
+        fecha: new Date()
+      };
+
+      this.mensajes.push(respuesta);
+      console.log('Mensajes después de enviar:', this.mensajes);
+    }, 10000);
   }
+
 }
