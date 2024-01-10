@@ -1,29 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Contacto } from '../contacto';
+import { ContactoService } from '../contacto.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  contactos: Contacto[] = [];
+  totalContactos: number = 0;
+  contactosPerPage: number = 5; // Cantidad de contactos por página
 
-  data: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  constructor(private contactoService: ContactoService) { }
 
-
-  onIonInfinite(event: any): void {
-    // Simula la carga de más datos después de 2 segundos
-    setTimeout(() => {
-      const newData = [10, 11, 12, 13, 14, 15]; // Puedes cargar datos adicionales desde tu servicio aquí
-      this.data = [...this.data, ...newData];
-
-      // Completa el evento de desplazamiento infinito
-      event.target.complete();
-
-      // Desactiva el desplazamiento infinito si ya has cargado todos los datos (por ejemplo, aquí desactivo después de cargar 15 elementos)
-      if (this.data.length >= 15) {
-        event.target.disabled = true;
-      }
-    }, 2000); // Simula la carga por 2 segundos
+  ngOnInit(): void {
+    this.getContactos();
   }
 
+  getContactos(): void {
+    this.contactos = this.contactoService.getContactos();
+    this.totalContactos = this.contactos.length;
+  }
+
+  onIonInfinite(event: any): void {
+    setTimeout(() => {
+      const startIndex = this.contactos.length;
+      const endIndex = startIndex + this.contactosPerPage;
+      const newContactos = this.contactoService.getContactos().slice(startIndex, endIndex);
+
+      this.contactos = [...this.contactos, ...newContactos];
+
+      event.target.complete();
+
+      if (this.contactos.length >= this.totalContactos) {
+        event.target.disabled = true;
+      }
+    }, 2000);
+  }
 }
