@@ -49,4 +49,8 @@ export class ContactoService {
   public getContactos(): Contacto[] {
     return this.contactos;
   }
+
+  public getContactoById(id: number): Contacto | undefined {
+    return this.contactos.find(contacto => contacto.id === id);
+  }
 }
