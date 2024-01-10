@@ -28,15 +28,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <ion-card *ngFor="let mensaje of mensajes">
+    <ion-card-content [ngClass]="{'mensaje-entrante': mensaje.input, 'mensaje-saliente': !mensaje.input}">
+      {{ mensaje.contenido }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
     <ion-chip>
-      <ion-input placeholder="Escriba un mensaje"></ion-input>
+      <ion-input [(ngModel)]="newmensaje" placeholder="Escriba un mensaje" (keyup.enter)="sendMensaje()"></ion-input>
     </ion-chip>
 
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="sendMensaje()">
       <ion-icon name="send"></ion-icon>
     </ion-button>
   </ion-toolbar>
