@@ -20,45 +20,42 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
-  <ion-segment value="Chats">
-    <ion-segment-button value="Comunidad">
+  <ion-segment [(ngModel)]="selectedSegment" >
+    <ion-segment-button value="comunidad">
       <ion-icon name="people-sharp"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button value="Chats">
+    <ion-segment-button value="chats">
       <ion-label>Chats</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="Novedades">
+    <ion-segment-button value="novedades">
       <ion-label>Novedades</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="Llamadas">
+    <ion-segment-button value="llamadas">
       <ion-label>Llamadas</ion-label>
     </ion-segment-button>
   </ion-segment>
 
-  <ion-list lines="none">
-    <ion-item *ngFor="let contacto of contactos" [routerLink]="['/contacto/'+contacto.id]">
-      <ion-avatar slot="start">
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
+  <ng-container *ngIf="selectedSegment ==='chats'">
+    <app-chats></app-chats>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="success">
+        <ion-icon name="chatbox"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ng-container>
 
-      <ion-label class="ion-text-wrap">
-        <p class="name"> {{contacto.name}}</p>
-        <p class="msg">hola</p>
-      </ion-label>
-      <ion-label slot="end" class="ion-text-wrap ion-text-end">
-        <p class="time">08:58</p>
-        <ion-badge class="unread_message" slot="end"> 2</ion-badge>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success">
-      <ion-icon name="chatbox"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  <ng-container *ngIf="selectedSegment ==='comunidad'">
+    <app-comunidad></app-comunidad>
+  </ng-container>
+
+  
+  <ng-container *ngIf="selectedSegment ==='novedades'">
+    <app-novedades></app-novedades>
+  </ng-container>
+
+  <ng-container *ngIf="selectedSegment ==='llamadas'">
+    <app-llamadas></app-llamadas>
+  </ng-container>
+ 
 </ion-content>
+

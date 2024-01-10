@@ -14,7 +14,23 @@ const routes: Routes = [
   {
     path: 'contacto/:id',
     loadChildren: () => import('./contacto/contacto.module').then(m => m.ContactoPageModule)
+  },  {
+    path: 'chats',
+    loadChildren: () => import('./chats/chats.module').then( m => m.ChatsPageModule)
   },
+  {
+    path: 'comunidad',
+    loadChildren: () => import('./comunidad/comunidad.module').then( m => m.ComunidadPageModule)
+  },
+  {
+    path: 'novedades',
+    loadChildren: () => import('./novedades/novedades.module').then( m => m.NovedadesPageModule)
+  },
+  {
+    path: 'llamadas',
+    loadChildren: () => import('./llamadas/llamadas.module').then( m => m.LlamadasPageModule)
+  },
+
 ];
 
 @NgModule({

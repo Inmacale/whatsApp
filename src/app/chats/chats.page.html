@@ -1,0 +1,20 @@
+<ion-list lines="none">
+  <ion-item *ngFor="let chat of chats" [routerLink]="['/contacto/'+ chat]">
+    <ion-avatar slot="start">
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+
+    <ion-label class="ion-text-wrap">
+      <p class="name"> {{chat.contacto}}</p>
+      <p class="msg">hola</p>
+    </ion-label>
+    <ion-label slot="end" class="ion-text-wrap ion-text-end">
+      <p class="time">08:58</p>
+      <ion-badge class="unread_message" slot="end"> 2</ion-badge>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>

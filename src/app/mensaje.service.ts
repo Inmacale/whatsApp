@@ -14,12 +14,11 @@ export class MensajeService {
     return this.mensajes
   }
 
-  sendMensaje(contenido: string, remitente: string, input: boolean): void {
+  sendMensaje(contenido: string, tipo: string): void {
     const newMensaje: Mensaje = {
       id: this.mensajes.length + 1,
       contenido,
-      remitente,
-      input,
+      tipo,
       fecha: new Date()
     };
 
@@ -29,8 +28,7 @@ export class MensajeService {
       const respuesta: Mensaje = {
         id: this.mensajes.length + 1,
         contenido: 'Respuesta automática después de 10 segundos',
-        remitente: 'Sistema',
-        input: true,
+        tipo: 'input',
         fecha: new Date()
       };
 
