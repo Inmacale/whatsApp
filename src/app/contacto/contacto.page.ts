@@ -26,8 +26,8 @@ export class ContactoPage implements OnInit {
   }
 
   getMensajes(): void {
-    this.mensajes = this.mensajeService.getMensajes().filter((mensaje) => mensaje.remitente === this.nombreContacto);
-
+    this.mensajes = this.mensajeService.getMensajes();
+    console.log('array', this.mensajes);
   }
 
   sendMensaje(): void {
