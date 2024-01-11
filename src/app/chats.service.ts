@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Chat } from './chat';
 import { ContactoService } from './contacto.service';
+import { Mensaje } from './mensaje';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,17 @@ export class ChatsService {
 
   public getChats(): Chat[] {
     return this.chats;
+  }
+
+  public obtenerUltimoMensaje(mensajes: Mensaje[]): Mensaje | null {
+    if (mensajes && mensajes.length > 0) {
+      const ultimoMensaje = mensajes[mensajes.length - 1];
+      console.log('Último mensaje:', ultimoMensaje);
+      return ultimoMensaje;
+    }
+    return null;
+
+
+
   }
 }

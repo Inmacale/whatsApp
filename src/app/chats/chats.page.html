@@ -6,8 +6,9 @@
 
     <ion-label class="ion-text-wrap">
       <p class="name"> {{chat.contacto.name}}</p>
-      <p class="msg">hola</p>
+      <p class="msg">{{obtenerUltimoMensaje(chat.mensajes)?.contenido}}</p>
     </ion-label>
+
     <ion-label slot="end" class="ion-text-wrap ion-text-end">
       <p class="time">08:58</p>
       <ion-badge class="unread_message" slot="end"> 2</ion-badge>
