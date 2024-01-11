@@ -47,7 +47,10 @@ export class ChatsPage implements OnInit {
     console.log('mensajes', mensajes)
     return this.chatService.obtenerUltimoMensaje(mensajes);
 
+  }
 
+  obtenerMensajesNoLeidos(mensajesNoLeidos: Mensaje[]): number {
+    return this.chatService.obtenerMensajesNoLeidos(mensajesNoLeidos);
   }
 
 }

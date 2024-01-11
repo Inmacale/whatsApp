@@ -11,7 +11,8 @@
 
     <ion-label slot="end" class="ion-text-wrap ion-text-end">
       <p class="time">{{obtenerUltimoMensaje(chat.mensajes)?.fecha | date: 'HH:mm'}}</p>
-      <ion-badge class="unread_message" slot="end"> 2</ion-badge>
+      <ion-badge *ngIf="obtenerMensajesNoLeidos(chat.mensajesNoLeidos) !== 0" class="unread_message" slot="end">
+        {{obtenerMensajesNoLeidos(chat.mensajesNoLeidos)}}</ion-badge>
     </ion-label>
   </ion-item>
 </ion-list>

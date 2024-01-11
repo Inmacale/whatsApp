@@ -29,7 +29,12 @@ export class ChatsService {
             tipo: 'input',
             fecha: new Date()
           }],
-          mensajesNoLeidos: []
+          mensajesNoLeidos: [{
+            id: 1,
+            contenido: 'mensaje no leido de prueba',
+            tipo: 'input',
+            fecha: new Date()
+          }]
         }
       );
     });
@@ -47,7 +52,12 @@ export class ChatsService {
     }
     return null;
 
+  }
 
-
+  public obtenerMensajesNoLeidos(mensajesNoLeidos: Mensaje[]): number {
+    if (mensajesNoLeidos && mensajesNoLeidos.length > 0) {
+      return mensajesNoLeidos.length;
+    }
+    return 0;
   }
 }
