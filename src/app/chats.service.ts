@@ -23,12 +23,7 @@ export class ChatsService {
         {
           id: nuevoId,
           contacto: element,
-          mensajes: [{
-            id: 1,
-            contenido: 'mensaje de prueba',
-            tipo: 'input',
-            fecha: new Date()
-          }],
+          mensajes: [],
           mensajesNoLeidos: [{
             id: 1,
             contenido: 'mensaje no leido de prueba',
@@ -59,5 +54,10 @@ export class ChatsService {
       return mensajesNoLeidos.length;
     }
     return 0;
+  }
+
+  getChatById(chatId: number): Chat | undefined {
+    return this.chats.find(chat => chat.id === chatId);
+
   }
 }
