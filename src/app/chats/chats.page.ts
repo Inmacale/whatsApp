@@ -10,18 +10,18 @@ import { Chat } from '../chat';
 })
 export class ChatsPage implements OnInit {
 
-  
-  chats: Chat [] =[];
+
+  chats: Chat[] = [];
   totalChat: number = 0;
   contactosPerPage: number = 5; // Cantidad de contactos por página
 
   constructor(private chatService: ChatsService) { }
 
   ngOnInit(): void {
-    this.getContactos();
+    this.getChat();
   }
 
-  getContactos(): void {
+  getChat(): void {
     this.chats = this.chatService.getChats();
     this.totalChat = this.chats.length;
   }

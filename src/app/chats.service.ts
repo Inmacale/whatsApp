@@ -7,28 +7,29 @@ import { ContactoService } from './contacto.service';
 })
 export class ChatsService {
 
-  chats: Chat[]=[];
-  
+  chats: Chat[] = [];
+
 
   constructor(private contactoService: ContactoService) {
     this.inicializarChat();
-   }
+  }
 
-   inicializarChat():void{
+  inicializarChat(): void {
     this.chats = [];
-      this.contactoService.getContactos().forEach(element => {
-        
-        this.chats?.push(
-          {
-            contacto: element,
-            mensajes: [],
-            mensajesNoLeidos: []
-          }
-        );
-      });
-   }
+    this.contactoService.getContactos().forEach(element => {
+      const nuevoId = this.chats.length + 1;
+      this.chats?.push(
+        {
+          id: nuevoId,
+          contacto: element,
+          mensajes: [],
+          mensajesNoLeidos: []
+        }
+      );
+    });
+  }
 
-   public getChats(): Chat[]{
+  public getChats(): Chat[] {
     return this.chats;
-   }
+  }
 }

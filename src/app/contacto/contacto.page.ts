@@ -33,7 +33,7 @@ export class ContactoPage implements OnInit {
   sendMensaje(): void {
 
     if (this.newmensaje.trim() !== '') {
-      this.mensajeService.sendMensaje(this.newmensaje, this.nombreContacto, true);
+      this.mensajeService.sendMensaje(this.newmensaje, this.nombreContacto);
       this.newmensaje = '';
       this.getMensajes();
     }

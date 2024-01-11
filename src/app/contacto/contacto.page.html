@@ -29,7 +29,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let mensaje of mensajes">
-    <ion-card-content [ngClass]="{'mensaje-entrante': mensaje.input, 'mensaje-saliente': !mensaje.input}">
+    <ion-card-content [ngClass]="{'mensaje-entrante': mensaje, 'mensaje-saliente': !mensaje}">
       {{ mensaje.contenido }}
     </ion-card-content>
   </ion-card>
