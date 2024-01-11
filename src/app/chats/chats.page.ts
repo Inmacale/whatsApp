@@ -44,8 +44,10 @@ export class ChatsPage implements OnInit {
   }
 
   obtenerUltimoMensaje(mensajes: Mensaje[]): Mensaje | null {
+    console.log('mensajes', mensajes)
     return this.chatService.obtenerUltimoMensaje(mensajes);
 
 
   }
+
 }

@@ -23,7 +23,12 @@ export class ChatsService {
         {
           id: nuevoId,
           contacto: element,
-          mensajes: [],
+          mensajes: [{
+            id: 1,
+            contenido: 'mensaje de prueba',
+            tipo: 'input',
+            fecha: new Date()
+          }],
           mensajesNoLeidos: []
         }
       );
@@ -37,7 +42,7 @@ export class ChatsService {
   public obtenerUltimoMensaje(mensajes: Mensaje[]): Mensaje | null {
     if (mensajes && mensajes.length > 0) {
       const ultimoMensaje = mensajes[mensajes.length - 1];
-      console.log('Último mensaje:', ultimoMensaje);
+
       return ultimoMensaje;
     }
     return null;

@@ -10,7 +10,7 @@
     </ion-label>
 
     <ion-label slot="end" class="ion-text-wrap ion-text-end">
-      <p class="time">08:58</p>
+      <p class="time">{{obtenerUltimoMensaje(chat.mensajes)?.fecha | date: 'HH:mm'}}</p>
       <ion-badge class="unread_message" slot="end"> 2</ion-badge>
     </ion-label>
   </ion-item>
