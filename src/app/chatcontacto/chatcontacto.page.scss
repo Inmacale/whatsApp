@@ -1,29 +1,3 @@
-/* Estilos para los mensajes entrantes */
-.mensaje-entrante {
-    background-color: #dcf8c6;
-    /* Color de fondo para mensajes entrantes */
-    border-radius: 10px;
-    /* Bordes redondeados para la burbuja del mensaje */
-    margin: 5px 10px;
-    /* Márgenes para separar los mensajes */
-    padding: 10px;
-    /* Relleno dentro de la burbuja del mensaje */
-}
-
-/* Estilos para los mensajes salientes */
-.mensaje-saliente {
-    background-color: #5af7ff;
-    /* Color de fondo para mensajes salientes */
-    border-radius: 10px;
-    /* Bordes redondeados para la burbuja del mensaje */
-    margin: 5px 10px;
-    /* Márgenes para separar los mensajes */
-    padding: 10px;
-    /* Relleno dentro de la burbuja del mensaje */
-    text-align: right;
-    /* Alinear el texto a la derecha para mensajes salientes */
-}
-
 ion-textarea {
     resize: none;
     max-height: 6em;

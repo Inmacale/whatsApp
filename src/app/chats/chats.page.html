@@ -1,18 +1,14 @@
 <ion-list lines="none">
-  <ion-item *ngFor="let chat of chats" [routerLink]="['/chatcontacto/'+chat.id]">
+  <ion-item *ngFor="let chat of chats" [routerLink]="['/chatcontacto/'+chat.id]" detail="false">
     <ion-avatar slot="start">
       <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
     </ion-avatar>
-
+    <ion-badge *ngIf="obtenerMensajesNoLeidos(chat.mensajesNoLeidos) !== 0" class="unread_message" slot="end">
+      {{obtenerMensajesNoLeidos(chat.mensajesNoLeidos)}}</ion-badge>
+    <ion-note slot="end" class="time">{{obtenerUltimoMensaje(chat.mensajes)?.fecha | date: 'HH:mm'}}</ion-note>
     <ion-label class="ion-text-wrap">
       <p class="name"> {{chat.contacto.name}}</p>
       <p class="msg">{{obtenerUltimoMensaje(chat.mensajes)?.contenido}}</p>
-    </ion-label>
-
-    <ion-label slot="end" class="ion-text-wrap ion-text-end">
-      <p class="time">{{obtenerUltimoMensaje(chat.mensajes)?.fecha | date: 'HH:mm'}}</p>
-      <ion-badge *ngIf="obtenerMensajesNoLeidos(chat.mensajesNoLeidos) !== 0" class="unread_message" slot="end">
-        {{obtenerMensajesNoLeidos(chat.mensajesNoLeidos)}}</ion-badge>
     </ion-label>
   </ion-item>
 </ion-list>

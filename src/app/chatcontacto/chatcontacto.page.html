@@ -9,7 +9,6 @@
     </ion-avatar>
     <ion-label class="ion-text-wrap">
       <p class="name"> {{chat?.contacto?.name}}</p>
-
     </ion-label>
 
 
@@ -29,15 +28,14 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let mensaje of chat?.mensajes">
-    <ion-card-content [ngClass]="{'mensaje-entrante': mensaje, 'mensaje-saliente': !mensaje}">
+    <ion-card-content>
       {{ mensaje.contenido }}
     </ion-card-content>
   </ion-card>
 
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-
+  <ion-toolbar color="undefined">
     <ion-item>
       <ion-textarea [(ngModel)]="newmensaje" placeholder="Escriba un mensaje" (keyup.enter)="sendMensaje()"
         autoGrow="true" rows="1"></ion-textarea>

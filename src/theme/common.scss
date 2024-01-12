@@ -8,6 +8,16 @@ p.name {
 p.msg {
     font-size: 15px;
     font-weight: bold;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+    width: 200px;
+
+    height: 20px;
 }
 
 p.time {

@@ -24,12 +24,7 @@ export class ChatsService {
           id: nuevoId,
           contacto: element,
           mensajes: [],
-          mensajesNoLeidos: [{
-            id: 1,
-            contenido: 'mensaje no leido de prueba',
-            tipo: 'input',
-            fecha: new Date()
-          }]
+          mensajesNoLeidos: []
         }
       );
     });
