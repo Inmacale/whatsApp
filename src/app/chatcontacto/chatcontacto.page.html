@@ -37,10 +37,11 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-chip>
-      <ion-input [(ngModel)]="newmensaje" placeholder="Escriba un mensaje" (keyup.enter)="sendMensaje()"></ion-input>
-    </ion-chip>
 
+    <ion-item>
+      <ion-textarea [(ngModel)]="newmensaje" placeholder="Escriba un mensaje" (keyup.enter)="sendMensaje()"
+        autoGrow="true" rows="1"></ion-textarea>
+    </ion-item>
     <ion-button slot="end" (click)="sendMensaje()">
       <ion-icon name="send"></ion-icon>
     </ion-button>

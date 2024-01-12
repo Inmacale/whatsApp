@@ -23,3 +23,9 @@
     text-align: right;
     /* Alinear el texto a la derecha para mensajes salientes */
 }
+
+ion-textarea {
+    resize: none;
+    max-height: 6em;
+    overflow-y: scroll;
+}
